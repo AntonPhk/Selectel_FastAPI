@@ -18,12 +18,10 @@ run:
 	uvicorn src.main:app --host 0.0.0.0 --port 8001 --reload
 
 run-in-docker:
-	$(ALEMBIC) -c alembic.ini upgrade head
-	$(PYTHON) -m $(PYTHON_SCRIPTS_DIR).db_default_tables_values
 	uvicorn src.main:app --host 0.0.0.0 --port 8001 --reload
 
 docker:
-	docker compose up --build
+	docker compose up --build -d
 
 clean:
 	find . -type d -name "__pycache__" -exec rm -r {} +

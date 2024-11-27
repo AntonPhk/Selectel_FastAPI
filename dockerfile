@@ -1,4 +1,4 @@
-FROM python:3.11.9-alpine as builder
+FROM python:3.12.3-alpine as builder
 LABEL authors="antonphk"
 
 WORKDIR /tmp
@@ -15,7 +15,7 @@ RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
 
 
 # Stage 2: Runtime stage
-FROM python:3.11.9-alpine
+FROM python:3.12.3-alpine
 
 
 WORKDIR /app
